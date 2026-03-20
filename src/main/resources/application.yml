@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: ms-shop
+
+  springdoc:
+    swagger-ui:
+      enabled: true
+      path: /swagger-ui.html
+    api-docs:
+      enabled: true
+      path: /api-docs
+
+  datasource:
+    url: jdbc:mysql://${HOST}/${NAMEBD}
+    username: ${USER}
+    password: ${PASS}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+  security:
+    jwt:
+      secret-key: ${JWT_SECRET}
+
+
+auth:
+  properties:
+    excludedUrls:
+      - "/swagger-ui.html"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+client:
+  server:
+    mail: "http://localhost:6001/ms-mail"
+
+ms-auth:
+  base-url: "http://localhost:6001/ms-mail"
+
+app:
+  stripe:
+    secret-key: ${STRIPE_SECRET_KEY}
+    webhook-secret: ${STRIPE_WEBHOOK_SECRET}
+
