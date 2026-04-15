@@ -57,6 +57,16 @@ public class InventoryService {
         saveMovement(variant, "RELEASE", quantity, "ORDER", referenceId, "Stock released after checkout expiration/failure");
     }
 
+    @Transactional
+    public void saveStockIn(ProductVariant variant, int quantity, String referenceType, String referenceId, String notes) {
+        saveMovement(variant, "IN", quantity, referenceType, referenceId, notes);
+    }
+
+    @Transactional
+    public void saveStockOut(ProductVariant variant, int quantity, String referenceType, String referenceId, String notes) {
+        saveMovement(variant, "OUT", quantity, referenceType, referenceId, notes);
+    }
+
     private void saveMovement(
             ProductVariant variant,
             String type,

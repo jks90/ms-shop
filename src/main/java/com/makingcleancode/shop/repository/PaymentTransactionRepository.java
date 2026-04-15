@@ -13,4 +13,5 @@ public interface PaymentTransactionRepository extends JpaRepository<PaymentTrans
 
     Optional<PaymentTransaction> findByProviderEventIdAndType(String providerEventId, PaymentTransactionType type);
 
+    List<PaymentTransaction> findAllByOrderByCreatedAtAsc();
 }

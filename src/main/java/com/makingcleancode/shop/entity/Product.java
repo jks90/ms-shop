@@ -25,4 +25,10 @@ public class Product {
 
     @Column(name = "brand", length = 120)
     private String brand;
+
+    @Column(name = "description", length = 2000)
+    private String description;
+
+    @Column(name = "category_id")
+    private Long categoryId;
 }

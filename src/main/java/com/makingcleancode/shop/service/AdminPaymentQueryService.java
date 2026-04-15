@@ -18,6 +18,14 @@ public class AdminPaymentQueryService {
     private final SalesOrderRepository salesOrderRepository;
     private final PaymentTransactionRepository paymentTransactionRepository;
 
+    @Transactional
+    public List<PaymentTransactionDto> getAllPaymentTransactions() {
+        return paymentTransactionRepository.findAllByOrderByCreatedAtAsc()
+                .stream()
+                .map(this::toDto)
+                .toList();
+    }
+
     @Transactional(readOnly = true)
     public List<PaymentTransactionDto> getOrderPaymentTransactions(Long orderId) {
         if (!salesOrderRepository.existsById(orderId)) {

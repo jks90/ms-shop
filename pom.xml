@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.makingcleancode.shop</groupId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <artifactId>ms-shop</artifactId>
     <packaging>jar</packaging>
     <properties>
@@ -28,7 +28,8 @@
         </dependency>
         <dependency>
             <groupId>com.makingcleancode</groupId>
-            <artifactId>springboot-security</artifactId>
+            <artifactId>library-users</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -86,6 +87,9 @@
                 <configuration>
                     <source>21</source>
                     <target>21</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.mapstruct</groupId>
@@ -107,40 +111,7 @@
             </plugin>
         </plugins>
     </build>
-    <repositories>
-        <repository>
-            <id>nexus</id>
-            <name>nexus</name>
-            <url>
-                http://192.168.68.114:8081/repository/maven-releases/
-            </url>
-        </repository>
-        <repository>
-            <id>nexus-snapshots</id>
-            <name>nexus-snapshots</name>
-            <url>
-                http://192.168.68.114:8081/repository/maven-snapshots/
-            </url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-    </repositories>
-    <distributionManagement>
-        <repository>
-            <id>nexus</id>
-            <name>nexus</name>
-            <url>http://192.168.68.114:8081/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <name>nexus-snapshots</name>
-            <url>http://192.168.68.114:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+
     <scm>
         <connection>scm:git:ssh://git@github.com:makingcleancode/ms-shop.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:makingcleancode/ms-shop.git</developerConnection>
