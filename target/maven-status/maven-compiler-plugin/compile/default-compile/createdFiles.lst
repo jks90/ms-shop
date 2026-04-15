@@ -89,5 +89,6 @@ com/makingcleancode/shop/dto/response/BasicStatusModel.class
 com/makingcleancode/shop/repository/SalesOrderItemRepository.class
 com/makingcleancode/shop/enums/OrderStatus.class
 com/makingcleancode/shop/entity/SalesOrderItem.class
+com/makingcleancode/shop/config/OpenApiConfig.class
 com/makingcleancode/shop/service/InventoryService.class
 com/makingcleancode/shop/service/SelfAddressService.class

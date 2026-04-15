@@ -1,4 +1,5 @@
 /home/keromanix/dev/ms-shop/src/main/java/com/makingcleancode/shop/MsStoreApplication.java
+/home/keromanix/dev/ms-shop/src/main/java/com/makingcleancode/shop/config/OpenApiConfig.java
 /home/keromanix/dev/ms-shop/src/main/java/com/makingcleancode/shop/config/StripeConfig.java
 /home/keromanix/dev/ms-shop/src/main/java/com/makingcleancode/shop/config/StripeProperties.java
 /home/keromanix/dev/ms-shop/src/main/java/com/makingcleancode/shop/controller/CheckoutController.java
