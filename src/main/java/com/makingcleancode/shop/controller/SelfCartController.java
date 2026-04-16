@@ -25,7 +25,8 @@ public class SelfCartController {
     @PostMapping("/items")
     public ResponseEntity<CartResponseDto> addItemToCart(@RequestBody CartItemRequestDto cartItemRequestDto) {
         User user = getAuthenticatedUser();
-        return ResponseEntity.ok(CartResponseDto.builder().status(ok()).build());
+        CartDto cart = selfCartService.addItemToCart(user.getId(), cartItemRequestDto);
+        return ResponseEntity.ok(CartResponseDto.builder().status(ok()).data(cart).build());
     }
 
     @Operation(summary = "VACIAR CARRITO")
@@ -40,14 +41,16 @@ public class SelfCartController {
     @GetMapping
     public ResponseEntity<CartResponseDto> getSelfCart() {
         User user = getAuthenticatedUser();
-        return ResponseEntity.ok(CartResponseDto.builder().status(ok()).build());
+        CartDto cart = selfCartService.getSelfCart(user.getId());
+        return ResponseEntity.ok(CartResponseDto.builder().status(ok()).data(cart).build());
     }
 
     @Operation(summary = "ELIMINAR ITEM DEL CARRITO")
     @DeleteMapping("/items/{itemId}")
     public ResponseEntity<CartResponseDto> removeCartItem(@PathVariable Long itemId) {
         User user = getAuthenticatedUser();
-        return ResponseEntity.ok(CartResponseDto.builder().status(ok()).build());
+        CartDto cart = selfCartService.removeCartItem(user.getId(), itemId);
+        return ResponseEntity.ok(CartResponseDto.builder().status(ok()).data(cart).build());
     }
 
     @Operation(summary = "ACTUALIZAR ITEM DEL CARRITO")
@@ -56,7 +59,8 @@ public class SelfCartController {
             @PathVariable Long itemId,
             @RequestBody UpdateCartItemRequestDto updateCartItemRequestDto) {
         User user = getAuthenticatedUser();
-        return ResponseEntity.ok(CartResponseDto.builder().status(ok()).build());
+        CartDto cart = selfCartService.updateCartItem(user.getId(), itemId, updateCartItemRequestDto);
+        return ResponseEntity.ok(CartResponseDto.builder().status(ok()).data(cart).build());
     }
 
     private User getAuthenticatedUser() {
